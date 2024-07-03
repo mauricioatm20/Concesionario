@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+
+</head>
+<body >
+<div th:fragment="main" class="home">
+    <h1 th:id="h1" th:class="${h1Class}">Bienvenido a la Página de Inicio</h1>
+    <p>Esta es la página de inicio de la aplicación.</p>
+</div>
+<div>
+ <!--   <a type="button" class="btn btn-outline-primary"  href="/coches">Coches</a>-->
+    <a class="btn btn-primary" href="/coches" role="button">Coches</a>
+
+</div>
+</body>
+</html>

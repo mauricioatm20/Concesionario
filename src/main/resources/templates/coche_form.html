@@ -1,0 +1,58 @@
+
+<h1 th:if="${coche.id == null}">Agregar Nuevo Coche</h1>
+<h1 th:if="${coche.id != null}">Editar Coche</h1>
+
+<!-- Para crear un nuevo coche -->
+
+<form th:if="${coche.id == null}" th:action="@{/coches}" th:object="${coche}" method="post">
+
+    <div class="form-group">
+        <label>Marca:</label>
+        <input type="text" class="form-control" th:field="*{marca}" required>
+    </div>
+    <div class="form-group">
+        <label>Modelo:</label>
+        <input type="text" class="form-control" th:field="*{modelo}" required>
+    </div>
+    <div class="form-group">
+        <label>Color:</label>
+        <input type="text" class="form-control" th:field="*{color}" required>
+    </div>
+    <div class="form-group">
+        <label>Precio:</label>
+        <input type="number" class="form-control" th:field="*{precio}" required>
+    </div>
+    <div class="form-group">
+        <label>Exposición:</label>
+        <input type="checkbox" class="form-check-inline" th:field="*{exposicion}" required>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+
+<!-- Para editar un coche existente -->
+
+<form th:if="${coche.id != null}" th:action="@{/coches/update/{id}(id=${coche.id})}" th:object="${coche}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+    <div class="form-group">
+        <label>Marca:</label>
+        <input type="text" class="form-control" th:field="*{marca}" readonly>
+    </div>
+    <div class="form-group">
+        <label>Modelo:</label>
+        <input type="text" class="form-control" th:field="*{modelo}" readonly>
+    </div>
+    <div class="form-group">
+        <label>Color:</label>
+        <input type="text" class="form-control" th:field="*{color}" readonly>
+    </div>
+    <div class="form-group">
+        <label>Precio:</label>
+        <input type="number" class="form-control" th:field="*{precio}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<a href="/coches" class="btn btn-danger">Cancelar</a>
