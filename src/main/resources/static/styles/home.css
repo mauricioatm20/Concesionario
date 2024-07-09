@@ -1,0 +1,29 @@
+.saludo{
+    text-align: center;
+
+}
+.home{
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/audi_home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.home h1 {
+    color: whitesmoke;
+}
+.home p{
+    color: whitesmoke;
+}
+
+.update{
+    background-image: url("../img/audi_hd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.end{
+    text-align: center;
+}
