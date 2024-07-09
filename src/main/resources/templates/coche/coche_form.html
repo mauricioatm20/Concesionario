@@ -1,10 +1,12 @@
+<div class="update">
+<a href="/coches" class="btn btn-primary">Coches</a>
 
-<h1 th:if="${coche.id == null}">Agregar Nuevo Coche</h1>
-<h1 th:if="${coche.id != null}">Editar Coche</h1>
+<h1 class="form" th:if="${coche.id == null}">Agregar Nuevo Coche</h1>
+<h1 class="form" th:if="${coche.id != null}">Editar Coche</h1>
 
 <!-- Para crear un nuevo coche -->
 
-<form th:if="${coche.id == null}" th:action="@{/coches}" th:object="${coche}" method="post">
+<form   th:if="${coche.id == null}" th:action="@{/coches}" th:object="${coche}" method="post">
 
     <div class="form-group">
         <label>Marca:</label>
@@ -56,3 +58,4 @@
 </form>
 
 <a href="/coches" class="btn btn-danger">Cancelar</a>
+    </div>

@@ -4,7 +4,6 @@ import com.concesionario.cursospring.entity.Coche;
 import com.concesionario.cursospring.service.CocheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +21,11 @@ public class CocheController {
 
         List<Coche> coches = cocheService.findAll();
         model.put("coches", coches);
-        model.put("view", "coche_list");
-        return "frame";
+        model.put("view", "coche/coche_list");
+
+        return "index/frame";
     }
+
 
     @GetMapping("/{id}")
     public String getFindById(Long id, ModelMap model) {
@@ -36,9 +37,9 @@ public class CocheController {
 // Muestra el formulario para crear un nuevo vehículo.
     @GetMapping("/create")
     public String showcreate(ModelMap model) {
-        model.put("view","coche_form");
+        model.put("view","coche/coche_form");
         model.addAttribute("coche", new Coche());
-        return "frame";
+        return "index/frame";
 
     }
 
@@ -55,9 +56,9 @@ public class CocheController {
     public String update(@PathVariable Long id, ModelMap model){
 
         Coche coche= cocheService.findById(id).orElseThrow(()-> new RuntimeException("Coche not found"));
-        model.put("view","coche_form");
+        model.put("view","coche/coche_form");
         model.addAttribute("coche", coche);
-        return "frame";
+        return "index/frame";
     }
 
     //Actualiza el vehículo con los detalles proporcionados y redirige a la lista de vehículos.
@@ -74,5 +75,7 @@ public class CocheController {
         cocheService.deleteById(id);
         return "redirect:/coches";
     }
+
+
 }
 

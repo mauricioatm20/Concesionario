@@ -1,0 +1,53 @@
+<div class="updateC">
+
+<a href="/clientes" class="btn btn-primary">Clientes</a>
+
+<h1 class="form" th:if="${cliente.id == null}">Agregar Nuevo Cliente</h1>
+<h1 class="form" th:if="${cliente.id != null}">Editar Cliente</h1>
+
+<!-- Para crear un nuevo coche -->
+
+<form th:if="${cliente.id == null}" th:action="@{/clientes}" th:object="${cliente}" method="post">
+
+
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" th:field="*{Name}" required>
+    </div>
+    <div class="form-group">
+        <label>DNI:</label>
+        <input type="text" class="form-control" th:field="*{DNI}" required>
+    </div>
+    <div class="form-group">
+        <label>NumCompras:</label>
+        <input type="number" class="form-control" th:field="*{NumCompras}" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+
+</form>
+
+<!-- Para editar un coche existente -->
+
+<form th:if="${cliente.id != null}" th:action="@{/clientes/update/{id}(id=${cliente.id})}" th:object="${cliente}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" th:field="*{Name}" required>
+    </div>
+    <div class="form-group">
+        <label>DNI:</label>
+        <input type="text" class="form-control" th:field="*{DNI}" required>
+    </div>
+
+    <div class="form-group">
+        <label>NumCompras:</label>
+        <input type="number" class="form-control" th:field="*{NumCompras}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<a href="/clientes" class="btn btn-danger">Cancelar</a>
+
+</div>

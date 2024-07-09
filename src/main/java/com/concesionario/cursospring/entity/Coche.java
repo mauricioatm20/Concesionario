@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Set;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,4 +26,7 @@ public class Coche implements Serializable {
     private String numSerie;
     private Double precio;
     private Boolean exposicion;
+
+
+    private Set<Venta> ventas;
 }

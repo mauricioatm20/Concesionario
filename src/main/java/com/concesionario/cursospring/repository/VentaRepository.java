@@ -1,4 +1,7 @@
 package com.concesionario.cursospring.repository;
 
-public interface VentaRepository {
+import com.concesionario.cursospring.entity.Venta;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VentaRepository extends JpaRepository<Venta, Long> {
 }

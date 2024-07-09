@@ -10,7 +10,9 @@ public class HomeController {
     @GetMapping("/")
     public String home(ModelMap model) {
 
-        model.put("view", "home");
-        return "frame";
+        model.put("view", "index/home");
+        return "index/frame";
     }
+
+
 }

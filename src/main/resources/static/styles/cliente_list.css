@@ -1,0 +1,11 @@
+.list_cli{
+    background-image: url("../img/audi.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.list{
+    color: whitesmoke;
+    text-align: center;
+}

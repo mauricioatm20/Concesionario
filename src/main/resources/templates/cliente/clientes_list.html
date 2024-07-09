@@ -1,0 +1,33 @@
+<div class="list_cli">
+<a type="button" class="btn btn-info btn-lg" href="/">INICIO</a>
+<div>
+    <h1 class="list">Lista de Clientes</h1>
+</div>
+<div class="mb-3">
+    <a th:href="@{/clientes/create}" class="btn btn-success btn-sm">Agregar Nuevo Cliente</a>
+</div>
+<table class="table table1 table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>DNI</th>
+        <th>NumCompras</th>
+
+    </tr>
+    </thead>
+    <tbody >
+    <tr th:each="cliente : ${clientes}">
+
+        <td th:text="${cliente.Name}"></td>
+        <td th:text="${cliente.DNI}"></td>
+        <td th:text="${cliente.NumCompras}"></td>
+
+        <td>
+            <a th:href="@{/clientes/edit/{id}(id=${cliente.id})}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="#" class="btn btn-danger btn-sm" th:onclick="'confirmDelete(event, \'' + @{/clientes/delete/{id}(id=${cliente.id})} + '\')'">Eliminar</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,31 @@
+.lista{
+    background-image: url("../img/audi_cli.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+}
+
+.lista{
+    color: black;
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    text-color: #000;
+}
+.table thead{
+    color: whitesmoke;
+}
+.table-hover tbody tr{
+    color: whitesmoke; ;
+}
+
+.form-group{
+    color: white;
+}
+.form {
+    color: white;
+}

@@ -1,0 +1,45 @@
+<div class="update">
+    <a href="/ventas" class="btn btn-primary">Ventas</a>
+
+    <h1 class="form" th:if="${venta.id == null}">Crear Factura</h1>
+
+    <h1 class="form" th:if="${venta.id != null}">Editar Factura</h1>
+
+    <form th:if="${venta.id == null}" th:action="@{/ventas}" th:object="${venta}" method="post">
+
+        <div class="form-group">
+            <label for="coche">Coche:</label>
+            <select class="form-control" id="coche" th:field="*{coche.id}">
+                <option value="">Seleccionar</option> <!-- Texto por defecto -->
+                <option th:each="coche : ${coches}" th:value="${coche.id}" th:text="${coche.marca + ' ' + coche.modelo}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="coche">Cliente:</label>
+            <select class="form-control" id="cliente" th:field="*{cliente.Id}">
+                <option value="">Seleccionar</option> <!-- Texto por defecto -->
+                <option th:each="cliente : ${clientes}" th:value="${cliente.Id}" th:text="${cliente.Name + ' ' + cliente.DNI}"></option>
+            </select>
+
+        <div class="form-group">
+            <label for="tipoPago">Tipo de Pago:</label>
+            <select class="form-control" id="tipoPago" th:field="*{tipoPago}">
+                <option value="">Seleccionar</option> <!-- Texto por defecto -->
+                <option th:value="EFECTIVO" th:text="'Efectivo'"></option>
+                <option th:value="TARJETA" th:text="'Tarjeta'"></option>
+            </select>
+        </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" class="form-control" id="fecha" th:field="*{fecha}" value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy')}">
+            </div>
+
+        <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="number" class="form-control" id="total" th:field="*{total}" placeholder="Total de la venta">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/clientes/create}" class="btn btn-success btn-sm">Agregar Nuevo Cliente</a>
+    </form>
+</div>
